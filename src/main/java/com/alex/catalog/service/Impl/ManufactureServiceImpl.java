@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.alex.catalog.entity.Manufacture;
 import com.alex.catalog.error.NotFoundException;
-import com.alex.catalog.perository.ManufactureRepository;
 import com.alex.catalog.service.ManufactureService;
 
 import lombok.RequiredArgsConstructor;
