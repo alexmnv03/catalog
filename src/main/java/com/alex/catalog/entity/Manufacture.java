@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Производитель
+ * Здесь будут храниться все производители и узлов и деталей
+ */
 @Getter
 @Setter
 @AllArgsConstructor

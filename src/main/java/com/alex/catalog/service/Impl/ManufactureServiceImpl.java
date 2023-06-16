@@ -3,6 +3,7 @@ package com.alex.catalog.service.Impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.alex.catalog.repository.ManufactureRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
