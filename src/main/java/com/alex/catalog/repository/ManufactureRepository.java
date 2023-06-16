@@ -1,4 +1,4 @@
-package com.alex.catalog.repoository;
+package com.alex.catalog.repository;
 
 import java.util.Optional;
 
