@@ -21,8 +21,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
+/**
+ * Машина - любой механизм, функционально законченное изделие, механизм, агрегат и т.д.
+ */
 @Getter
 @Setter
 @AllArgsConstructor
