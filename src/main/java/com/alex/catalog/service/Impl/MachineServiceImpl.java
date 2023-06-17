@@ -1,5 +1,6 @@
 package com.alex.catalog.service.Impl;
 
+import com.alex.catalog.repository.MachineRepository;
 import com.alex.catalog.service.MachineService;
 
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.alex.catalog.entity.Machine;
 import com.alex.catalog.entity.MachinePart;
 import com.alex.catalog.error.NotFoundException;
-import com.alex.catalog.perository.MachineRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
