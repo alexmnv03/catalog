@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: machine-part-table-1
+      author: alex
+      context: prod
+      changes:                  
+        - createTable:
+            tableName: machine_parts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: machine_partsIdPk
+                    nullable: false
+              - column:
+                  name: name_parts
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(17)
+                  constraints:
+                    nullable: false
+                    unique: true                  
+              - column:
+                  name: version
+                  type: varchar(15)
+                  constraints:
+                    nullable: false                  
+              - column:
+                  name: year
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: oem_or_analog
+                  type: boolean
+              - column:
+                  name: image_file_name
+                  type: varchar(255)
+              - column:
+                  name: manufacture_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_machine_parts__id
+                    references: manufacturers(id)
+              - column:
+                  name: price
+                  type: double
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: machine_parts-link-1
+      author: alex
+      context: prod
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: machine_part_link
+            baseColumnNames: part_id
+            constraintName: fk_machine_parts_link__id
+            referencedTableName: machine_parts
+            referencedColumnNames: id

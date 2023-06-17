@@ -1,0 +1,112 @@
+databaseChangeLog:
+  - changeSet:
+      id: manufacture-table-1
+      author: alex
+      context: prod
+      changes:
+        - createTable:
+            tableName: manufacturers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: manufactureIdPk
+                    nullable: false
+              - column:
+                  name: manufacture_name
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+                    unique: true                  
+              - column:
+                  name: code
+                  type: varchar(25)
+                  constraints:
+                    nullable: false
+                    unique: true                  
+              - column:
+                  name: description
+                  type: varchar(255)              
+  - changeSet:
+      id: machine-table-1
+      author: alex
+      context: prod
+      changes:
+        - createTable:
+            tableName: machines
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: machineIdPk
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(17)
+                  constraints:
+                    nullable: false
+                    unique: true                  
+              - column:
+                  name: model
+                  type: varchar(35)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: year
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: image_file_name
+                  type: varchar(255)
+              - column:
+                  name: manufacture_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_manufacture__id
+                    references: manufacturers(id)
+  - changeSet:
+      id: machine_part_link-table-1
+      author: alex
+      context: prod
+      changes:
+        - createTable:
+            tableName: machine_part_link
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: machine_part_linkIdPk
+                    nullable: false
+              - column:
+                  name: part_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false                  
+              - column:
+                  name: machine_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false                                      
+  - changeSet:
+      id: machine-link-1
+      author: alex
+      context: prod
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: machine_part_link
+            baseColumnNames: machine_id
+            constraintName: fk_machine_link__id
+            referencedTableName: machines
+            referencedColumnNames: id
