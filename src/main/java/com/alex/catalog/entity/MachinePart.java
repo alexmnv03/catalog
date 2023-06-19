@@ -16,11 +16,9 @@ import javax.persistence.Table;
 import com.alex.catalog.common.AbstractIdEntity;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  * Блок, узел, любая функционально законченная часть машины
