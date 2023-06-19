@@ -1,7 +1,6 @@
 package com.alex.catalog.facade.Impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -9,8 +8,6 @@ import com.alex.catalog.dto.MachineDto;
 import com.alex.catalog.dto.MachinePartDto;
 import com.alex.catalog.entity.Machine;
 import com.alex.catalog.entity.MachinePart;
-import com.alex.catalog.entity.Manufacture;
-import com.alex.catalog.error.NotFoundException;
 import com.alex.catalog.facade.MachineFacade;
 import com.alex.catalog.mapper.MachineMapper;
 import com.alex.catalog.mapper.MachinePartMapper;
@@ -20,8 +17,6 @@ import com.alex.catalog.service.ManufactureService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import static com.alex.catalog.error.constant.ErrorConstant.MANUFACTURE_NOT_FOUND;
 
 @Slf4j
 @Component
@@ -37,7 +32,6 @@ public class MachineFacadeImpl implements MachineFacade{
     private final MachinePartService machinePartService;
 
     private final ManufactureService manufactureService;
-
 
     @Override
     public MachineDto create(MachineDto dto) {
@@ -62,9 +56,7 @@ public class MachineFacadeImpl implements MachineFacade{
             // machinePartService.create(machinePart);
         } else {
             entitySaved = machineService.create(entity);
-
-        }                
-
+        }
         log.debug("create entity {}", entitySaved);
         return machineMapper.entityToDtoConvert(entitySaved);
     }
@@ -95,20 +87,9 @@ public class MachineFacadeImpl implements MachineFacade{
             // machinePart.getMachines().add(entitySaved);
             // log.debug("machinePart id {}", machinePart.getId());
             // machinePartService.create(machinePart);
-
-            // someCategory.getItems().add(someItem);
-            // someItem.getCategories().add(someCategory);
-    
-            // someCategory.getItems().add(otherItem);
-            // otherItem.getCategories().add(someCategory);
-    
         } else {
             entitySaved = machineService.create(entity);
-
         }
-        
-        
-
         log.debug("create entity {}", entitySaved);
         return machineMapper.entityToDtoConvert(entitySaved);
     }    

@@ -53,13 +53,6 @@ public class MachinePartFacadeImpl implements MachinePartFacade{
     public List<MachinePartDto> getAll() {
         List<MachinePart> entities = machinePartService.getAll();
         log.debug("getAll entities {}", entities);
-
-
-        List<MachinePart> parts = machinePartService.findMachinePartsWithCodeMachines("c-61");
-        log.debug("parts size {}", parts.size());
-
-
-
         return machinePartMapper.entityToDtoListConvert(entities);
     }
 
