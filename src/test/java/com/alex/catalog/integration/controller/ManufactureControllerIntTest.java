@@ -2,13 +2,9 @@ package com.alex.catalog.integration.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +16,6 @@ import com.alex.catalog.service.ManufactureService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -79,8 +74,6 @@ public class ManufactureControllerIntTest {
         assertThat(addedManufacture.getId(), notNullValue());
     }
 
-    // @Sql({"/getManufactures_shouldOk.sql"})
-    // @Rollback(false)
     @Test
     @Transactional
     public void getAll_shouldOk() throws Exception {
@@ -103,7 +96,6 @@ public class ManufactureControllerIntTest {
     @Test
     @Transactional
     public void getOne_shouldOk() throws Exception {
-        log.info("-------------------  one   ----------------------------");
         Manufacture manufactureSaved = manufactureService.create(MANUFACTURE_01);
         Long idSaved = manufactureSaved.getId();
         log.info("id = = " + manufactureSaved.getId());

@@ -1,6 +1,7 @@
 package com.alex.catalog.unit.service;
 
 
+import com.alex.catalog.repository.ManufactureRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -9,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.alex.catalog.entity.Manufacture;
 import com.alex.catalog.error.NotFoundException;
-import com.alex.catalog.perository.ManufactureRepository;
 import com.alex.catalog.service.Impl.ManufactureServiceImpl;
 import com.alex.catalog.util.ManufactureUtil;
 

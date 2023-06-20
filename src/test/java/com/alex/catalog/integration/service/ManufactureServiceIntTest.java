@@ -1,18 +1,13 @@
 package com.alex.catalog.integration.service;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.alex.catalog.repository.ManufactureRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.alex.catalog.controller.ManufactureController;
-import com.alex.catalog.perository.ManufactureRepository;
 import com.alex.catalog.service.ManufactureService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static com.alex.catalog.util.ManufactureUtil.MANUFACTURE_01;
 import static com.alex.catalog.util.ManufactureUtil.MANUFACTURE_02;
@@ -28,7 +22,6 @@ import static com.alex.catalog.util.ManufactureUtil.MANUFACTURE_03;
 
 @Slf4j
 // @ExtendWith(SpringExtension.class)
-// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @SpringBootTest
 @Rollback(true)
 public class ManufactureServiceIntTest {
